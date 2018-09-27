@@ -1,10 +1,11 @@
 #! /usr/bin/env python3
 
-import dotenv
 import locale
 import os
-import requests
 import subprocess
+
+import dotenv
+import requests
 from dialog import Dialog
 
 dotenv.load_dotenv()
@@ -94,4 +95,4 @@ if __name__ == '__main__':
     try:
         Jump()
     except KeyboardInterrupt:
-        exit(0)
+        pass
