@@ -21,13 +21,13 @@ class Jump:
         self.run()
 
     def get_item_list(self):
-        secret_key = os.environ.get('X_SECRET_KEY')
+        secret_key = os.environ.get('AUTH_KEY')
         extra_headers = {}
 
         if secret_key:
-            extra_headers['X-Secret-Key'] = secret_key
+            extra_headers[os.environ.get('AUTH_HEADER')] = secret_key
 
-        self.items = requests.get(os.environ.get('PROJECTS_ENDPOINT'), headers=extra_headers).json()['items']
+        self.items = requests.get(os.environ.get('ENDPOINT'), headers=extra_headers).json()['items']
 
     def format_items(self, items, servers=False):
         self.formatted_menu_items = []
