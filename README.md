@@ -136,3 +136,4 @@ file for their user on the jumpgate.
 
  - add documentation and examples
  - add install script
+ - update README to reflect changes to installation and run procedures
