@@ -3,6 +3,7 @@
 import locale
 import os
 import subprocess
+from typing import List, Dict
 
 import dotenv
 import requests
@@ -15,22 +16,22 @@ class Jump:
     items = []
     formatted_menu_items = []
 
-    def __init__(self):
-        self.d = Dialog()
+    def __init__(self) -> None:
+        self.d: Dialog = Dialog()
         self.get_item_list()
         self.run()
 
-    def get_item_list(self):
-        secret_key = os.environ.get('AUTH_KEY')
-        extra_headers = {}
+    def get_item_list(self) -> None:
+        secret_key: str = os.environ.get('AUTH_KEY')
+        extra_headers: Dict = {}
 
-        if secret_key:
+        if secret_key is not None:
             extra_headers[os.environ.get('AUTH_HEADER')] = secret_key
 
-        self.items = requests.get(os.environ.get('ENDPOINT'), headers=extra_headers).json()['items']
+        self.items: List = requests.get(os.environ.get('ENDPOINT'), headers=extra_headers).json()['items']
 
-    def format_items(self, items, servers=False):
-        self.formatted_menu_items = []
+    def format_items(self, items: List, servers: bool = False) -> None:
+        self.formatted_menu_items: List = []
 
         for item in items:
             if servers is False and item['in_jumpgate'] is False:
@@ -38,7 +39,7 @@ class Jump:
             else:
                 self.formatted_menu_items.append((item['name'] if not servers else item['display_name'], ''))
 
-    def create_menu(self, title, items, cancel_label='Back'):
+    def create_menu(self, title: str, items: List, cancel_label: str = 'Back') -> tuple:
         return self.d.menu(
             title,
             choices=items,
@@ -46,7 +47,7 @@ class Jump:
             cancel_label=cancel_label,
         )
 
-    def get_server_info(self, app, server=None):
+    def get_server_info(self, app: str, server: str = None) -> List or Dict:  # TODO: split function
         for item in self.items:
             if item['name'] == app:
                 if server is not None:
