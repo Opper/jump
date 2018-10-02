@@ -5,11 +5,10 @@ import os
 import subprocess
 from typing import List, Dict
 
-import dotenv
 import requests
-from dialog import Dialog
 
-dotenv.load_dotenv()
+import dotenv
+from dialog import Dialog
 
 
 class Jump:
@@ -90,10 +89,15 @@ class Jump:
                 self.run()
 
 
-if __name__ == '__main__':
+def main(args=None):
+    dotenv.load_dotenv()
     locale.setlocale(locale.LC_ALL, '')
 
     try:
         Jump()
     except KeyboardInterrupt:
         pass
+
+
+if __name__ == '__main__':
+    main()
