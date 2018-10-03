@@ -2,3 +2,5 @@
 venv/
 tests/
 .env
+*.egg*
+__pycache__

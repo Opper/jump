@@ -3,11 +3,10 @@
 import locale
 import os
 import subprocess
-from typing import List, Dict
-
-import requests
+from typing import Dict, List
 
 import dotenv
+import requests
 from dialog import Dialog
 
 
@@ -49,7 +48,7 @@ class Jump:
     def get_server_info(self, app: str) -> Dict:
         for item in self.items:
             if item['name'] == app:
-                    return item
+                return item
 
     def get_server_items(self, app: str, server_name: str) -> Dict:
         app_object = self.get_server_info(app)
