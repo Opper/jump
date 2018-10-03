@@ -108,14 +108,7 @@ applications and servers (for now it does not have permission-checking built in)
 
 #### Locally
 
-If you'd like to run the script locally, the only thing you need to do is update your `$PATH` variable to contain
-the folder where the script is installed (if you've used the automagic install script, it will be `/opt/jump`). So, add
-the following at the end of your `.bashrc` or `.zshrc`:
-
-`export $PATH=$PATH:/opt/jump`
-
-Then you can run directly the `jump` file (which is basically a bash script that activates the virtual environment and
-runs menu.py)
+If you'd like to run the script locally (assuming you've run the install script above), you just need to use `jump`.
 
 #### On a central server
 
@@ -124,7 +117,7 @@ After installing the script, there's a couple things that you'd need to do.
 - In `/etc/skel` create an .ssh folder and generate a privatey (and public) key with `ssh-keygen -t rsa`. What this will
 do is have each created user have the same key when connecting to a remote server.
 - Copy the generated key to any `authorized_keys` file on any server(s) you want reachable from the script.
-- Add the following inside the `.bash_profile` file: `/opt/jump/jump && exit`. This will execute on every user login
+- Add the following inside the `.bash_profile` file: `jump && exit`. This will execute on every user login
 and when the user decides to exit, it will also exit the session on the jump server. 
 
 Then you can create any user and have them use the jumpgate.
@@ -134,6 +127,5 @@ file for their user on the jumpgate.
 
 #### Todo:
 
- - add documentation and examples
- - add install script
- - update README to reflect changes to installation and run procedures
+- figure way to handle .env file after installation
+- add to pypi for easy install
