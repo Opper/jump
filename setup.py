@@ -29,7 +29,8 @@ if __name__ == '__main__':
         install_requires=[
             'python-dotenv',
             'pythondialog',
-            'requests'
+            'requests',
+            'click',
         ],
         include_package_data=True
     )

@@ -5,6 +5,7 @@ import os
 import subprocess
 from typing import Dict, List
 
+import click
 import dotenv
 import requests
 from dialog import Dialog
@@ -90,8 +91,17 @@ class Jump:
                 self.run()
 
 
-def main():
-    dotenv.load_dotenv()
+@click.command()
+@click.option('--env-file')
+def main(env_file):
+    if env_file is None:
+        env_file = '{}/.jump.env'.format(os.environ.get('HOME'))
+
+    if os.path.exists(env_file) is False:
+        click.secho('Can not find .env file in {}'.format(env_file), fg='red')
+        exit(1)
+
+    dotenv.load_dotenv(env_file)
     locale.setlocale(locale.LC_ALL, '')
 
     try:
