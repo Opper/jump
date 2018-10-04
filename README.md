@@ -87,18 +87,22 @@ After selecting an item the SSH connection will be forwarded to that server.
 
 ### Installation
 
-To install the jumpgate script, run the following command:
+Before you install the jumpgate, you need to have the dialog package installed. You can install it either via brew if 
+you're on MacOS or apt or yum or whatever.
 
-`$ wget https://github.com/opper/jump/blob/master/install.sh | bash`
+You can install the jumpgate via pip:
 
-This will install the jumpgate in the following directory: `/opt/jump`. After the installation is done, create and
-populate an `.env` file in the root directory of the script with the following values:
+`pip install pyjump`
+
+By default, the jumpgate will look for a file called `.jump.env` in your home directory containing the following values:
 
 - AUTH_KEY: If you use any kind of authentication when retrieving the items. If not, leave it empty.
 - AUTH_HEADER: If you use authentication (via a header) set this to the value of your header.
 - ENDPOINT: API endpoint from where to fetch the list of applications.
 
-After this is done, you can start using the jumpgate.
+If you want to specify a different location for that file you can using the `--env-file` flag. Like so:
+
+`jump --env-file=/other/location/.env`
 
 ### Usage
 
