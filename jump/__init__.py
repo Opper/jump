@@ -1,1 +1,1 @@
-from .menu import Jump
+name = 'pyjump'

@@ -5,10 +5,10 @@ if __name__ == '__main__':
         long_description = fh.read()
 
     setuptools.setup(
-        name='jump',
+        name='pyjump',
         version='1.0',
         author='opper',
-        author_email='',
+        author_email='alex@opper.nl',
         description=(
             'Utility that builds a 2-level menu based on applications and their available environments.'
         ),
