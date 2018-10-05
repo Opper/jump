@@ -6,7 +6,7 @@ if __name__ == '__main__':
 
     setuptools.setup(
         name='pyjump',
-        version='1.0',
+        version='1.1',
         author='opper',
         author_email='alex@opper.nl',
         description=(
