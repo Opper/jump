@@ -90,14 +90,13 @@ class Jump:
                 self.run()
 
     def sort_servers(self, server: tuple) -> int:
-        if server[0] == 'Staging':
-            return -1
+        weights = {
+            'Staging': -1,
+            'Acceptance': 0,
+            'Production': 1,
+        }
 
-        if server[0] == 'Acceptance':
-            return 0
-
-        if server[0] == 'Production':
-            return 1
+        return weights[server[0]] if server[0] in weights else -1
 
 
 @click.command()
