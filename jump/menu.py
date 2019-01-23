@@ -65,7 +65,7 @@ class Jump:
         if code == self.d.OK:
             self.format_items(self.get_server_info(app)['servers'], True)
 
-            code, server = self.create_menu('Choose a server', sorted(self.formatted_menu_items, key=sort_servers))
+            code, server = self.create_menu('Choose a server', sorted(self.formatted_menu_items, key=self.sort_servers))
 
             if code == self.d.CANCEL:
                 self.run()
@@ -89,16 +89,15 @@ class Jump:
 
                 self.run()
 
+    def sort_servers(self, server: tuple) -> int:
+        if server[0] == 'Staging':
+            return -1
 
-def sort_servers(server: tuple) -> int:
-    if server[0] == 'Staging':
-        return -1
+        if server[0] == 'Acceptance':
+            return 0
 
-    if server[0] == 'Acceptance':
-        return 0
-
-    if server[0] == 'Production':
-        return 1
+        if server[0] == 'Production':
+            return 1
 
 
 @click.command()
