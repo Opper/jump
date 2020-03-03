@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
-import locale
 import os
 import subprocess
 
 import click
 import dotenv
+import locale
 import requests
 from dialog import Dialog
 
