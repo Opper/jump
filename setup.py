@@ -6,7 +6,7 @@ if __name__ == '__main__':
 
     setuptools.setup(
         name='pyjump',
-        version='1.1',
+        version='1.2',
         author='opper',
         author_email='alex@opper.nl',
         description=(
@@ -18,6 +18,7 @@ if __name__ == '__main__':
         packages=setuptools.find_packages(),
         classifiers=(
             'Programming Language :: Python :: 3',
+            'Programming Language :: Python :: 3.7',
             'License :: OSI Approved :: MIT License',
             'Operating System :: OS Independent',
         ),
