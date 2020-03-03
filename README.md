@@ -14,63 +14,61 @@ This script also handles some applications/servers not being in the jumpgate.
 The menu is built based on a JSON response from a server. The response looks like this:
 
 ```json
-{
-    "items": [
-        {
-            "id": "b84b07c8-738e-4088-969f-0ee4c822fd3a",
-            "in_jumpgate": false,
-            "name": "test-app",
-            "servers": [
-                {
-                    "display_name": "Staging",
-                    "id": "939bf2ce-d0e0-42b8-8600-f7f7ef5db72b",
-                    "ip": "1.2.3.4",
-                    "is_serverpilot": true,
-                    "name": "staging",
-                    "port": 222,
-                    "user": "serverpilot"
-                },
-                {
-                    "display_name": "Production",
-                    "id": "6a7f9169-5fe3-49d2-8eea-bfafcc53f4de",
-                    "ip": "1.2.3.4",
-                    "is_serverpilot": false,
-                    "name": "prod",
-                    "port": 222,
-                    "user": "root"
-                }
-            ]
-        }, {
-            "id": "81a1afa3-f610-4b64-935f-7e93c025209b",
-            "in_jumpgate": true,
-            "last_backup": 1538352010,
-            "name": "another-test-app",
-            "servers": [
-                {
-                    "created_at": 1533644177,
-                    "display_name": "Staging",
-                    "id": "939bf2ce-d0e0-42b8-8600-f7f7ef5db72b",
-                    "ip": "1.2.3.4",
-                    "is_serverpilot": true,
-                    "name": "staging",
-                    "port": 222,
-                    "updated_at": 1533808205,
-                    "user": "serverpilot"
-                }, {
-                     "created_at": 1533644177,
-                     "display_name": "Acceptance",
-                     "id": "939bf2ce-d0e0-42b8-8600-f7f7ef5db72b",
-                     "ip": "1.2.3.4",
-                     "is_serverpilot": true,
-                     "name": "acceptance",
-                     "port": 222,
-                     "updated_at": 1533808205,
-                     "user": "serverpilot"
-                 }
-            ]
-        }
-    ]
-}
+[
+    {
+        "id": "b84b07c8-738e-4088-969f-0ee4c822fd3a",
+        "in_jumpgate": false,
+        "name": "test-app",
+        "servers": [
+            {
+                "display_name": "Staging",
+                "id": "939bf2ce-d0e0-42b8-8600-f7f7ef5db72b",
+                "ip": "1.2.3.4",
+                "is_serverpilot": true,
+                "name": "staging",
+                "port": 222,
+                "user": "serverpilot"
+            },
+            {
+                "display_name": "Production",
+                "id": "6a7f9169-5fe3-49d2-8eea-bfafcc53f4de",
+                "ip": "1.2.3.4",
+                "is_serverpilot": false,
+                "name": "prod",
+                "port": 222,
+                "user": "root"
+            }
+        ]
+    }, {
+        "id": "81a1afa3-f610-4b64-935f-7e93c025209b",
+        "in_jumpgate": true,
+        "last_backup": 1538352010,
+        "name": "another-test-app",
+        "servers": [
+            {
+                "created_at": 1533644177,
+                "display_name": "Staging",
+                "id": "939bf2ce-d0e0-42b8-8600-f7f7ef5db72b",
+                "ip": "1.2.3.4",
+                "is_serverpilot": true,
+                "name": "staging",
+                "port": 222,
+                "updated_at": 1533808205,
+                "user": "serverpilot"
+            }, {
+                 "created_at": 1533644177,
+                 "display_name": "Acceptance",
+                 "id": "939bf2ce-d0e0-42b8-8600-f7f7ef5db72b",
+                 "ip": "1.2.3.4",
+                 "is_serverpilot": true,
+                 "name": "acceptance",
+                 "port": 222,
+                 "updated_at": 1533808205,
+                 "user": "serverpilot"
+             }
+        ]
+    }
+]
 ```
 
 This creates a menu like so:

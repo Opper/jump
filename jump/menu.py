@@ -27,7 +27,7 @@ class Jump:
         if secret_key is not None:
             extra_headers[os.environ.get('AUTH_HEADER')] = secret_key
 
-        self.items: List = requests.get(os.environ.get('ENDPOINT'), headers=extra_headers).json()['items']
+        self.items: List = requests.get(os.environ.get('ENDPOINT'), headers=extra_headers).json()
 
     def format_items(self, items: List, servers_list: bool = False) -> None:
         self.formatted_menu_items: List = []
